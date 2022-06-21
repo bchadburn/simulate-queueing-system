@@ -2,7 +2,7 @@
 
 ![alt text](https://images.firstwefeast.com/complex/image/upload/c_limit,f_auto,fl_lossy,q_auto,w_1100/cmslqxf3wpgifoakb2qq.jpg)
 
-A project for simulating a queueing system to find the optimal number of cooks to reduce avg wait time at a restauran 
+A project for simulating a queueing system to find the optimal number of cooks to reduce average wait time at a restaurant.
 
 ## Getting Started
 
