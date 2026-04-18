@@ -195,7 +195,6 @@ def _replicate_simulation(daily_schedule, menu_time_list, lookup_list, cooks, ho
                  'queued_orders', 'completed_orders', 'kitchen_hrs_opened', 'after_hrs_time'])
 
     for i in tqdm(range(simulation_samples)):
-        np.random.seed(i)
         simulator = RestaurantSimulation(daily_schedule, menu_time_list, lookup_list, cooks, decay_rate)
         while simulator.clock <= hours_opened * 60:
             simulator.timing_routine()
