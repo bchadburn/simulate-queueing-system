@@ -1,30 +1,45 @@
-# Simulate restaurant waiting times
+# Simulate Queueing System
 
-![alt text](https://images.firstwefeast.com/complex/image/upload/c_limit,f_auto,fl_lossy,q_auto,w_1100/cmslqxf3wpgifoakb2qq.jpg)
+Monte Carlo simulation to find the optimal number of kitchen staff that minimizes average
+customer wait time at a restaurant, accounting for cook performance degradation as team size grows.
 
-A project for simulating a queueing system to find the optimal number of cooks to reduce average wait time at a restaurant.
+## Approach
 
-## Getting Started
+- Simulates order queues across a range of cook counts
+- Models performance degradation per cook as a configurable decay rate
+- Runs N simulation samples per configuration to estimate stable averages
+- Outputs optimal cook count and wait time distribution
 
-- Create a python virtual environment in the system and activate it.
+## Project Structure
 
-**Installation using pip:**
-  - `pip install virtualenv`
-  - `virtualenv <env_name>`
-  - `source <env_name>/bin/activate`
+```
+restaurant_problem/
+├── main.py        # Entry point — runs simulation sweep
+├── constants.py   # Restaurant parameters (menu, cook times, order rate)
+└── ...
+tests/             # Pytest suite
+```
 
-Install the dependencies for the project using the requirements.txt
-  - `pip install -r requirements.txt`
+## Quickstart
 
+Requires Python 3.9+ and [uv](https://github.com/astral-sh/uv).
 
-### Run simulation
-Run python restaurant_problem/main.py
+```bash
+git clone https://github.com/bchadburn/simulate-queueing-system.git
+cd simulate-queueing-system
+uv sync
+uv run python restaurant_problem/main.py
+```
 
-There are several optional parameters
-- -s: "simulation_samples"  The number of simulations to run per number of cooks. Default is 50.
-- -p: performance_decay_rate: Rate at which the cooks performance degrades as more cooks work in the kitchen. Default decay rate is .03
-- -d: debug: Whether to run process on debug mode. Debug mode will save queueing info to logs. Limits simulation samples to 2. 
+Optional parameters:
+```
+-s  simulation_samples       Number of simulations per cook count (default: 50)
+-p  performance_decay_rate   Cook performance decay as team grows (default: 0.03)
+-d  debug                    Debug mode — saves queue logs, limits to 2 samples
+```
 
-RESTAURANT_PARAMETERS including current menu list, cook time, and expected number of orders per hour are defined in 
-constants.py file
+## Run Tests
 
+```bash
+uv run pytest tests/ -v
+```
