@@ -208,7 +208,7 @@ def _replicate_simulation(daily_schedule, menu_time_list, lookup_list, cooks, ho
                                     simulator.total_cook_time / simulator.clock, simulator.total_queued,
                                     simulator.completed_orders, hours_opened,
                                     simulator.clock - hours_opened * 60], index=results.columns)
-        results = results.append(sample_results, ignore_index=True)
+        results = pd.concat([results, pd.DataFrame([sample_results])], ignore_index=True)
     return results
 
 
@@ -223,7 +223,7 @@ def find_optimal_num_cooks(simulation_results, max_cooks, daily_schedule, menu_t
         recent_avg_time = np.mean(results_tbl['avg_wait_time'])
         min_avg_time = min(min_avg_time, np.mean(results_tbl['avg_wait_time']))
         logging.info(f'simulations completed for {num_cooks} cooks')
-        simulation_results = simulation_results.append(results_tbl, ignore_index=True)
+        simulation_results = pd.concat([simulation_results, results_tbl], ignore_index=True)
         num_cooks -= 1
 
     logging.info(f'{restaurant} simulations completed')
