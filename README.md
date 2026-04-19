@@ -27,8 +27,9 @@ Requires Python 3.9+ and [uv](https://github.com/astral-sh/uv).
 ```bash
 git clone https://github.com/bchadburn/simulate-queueing-system.git
 cd simulate-queueing-system
-uv sync
-uv run python restaurant_problem/main.py
+uv venv && source .venv/bin/activate
+pip install -r requirements.txt
+python restaurant_problem/main.py
 ```
 
 Optional parameters:
@@ -41,5 +42,5 @@ Optional parameters:
 ## Run Tests
 
 ```bash
-uv run pytest tests/ -v
+pytest tests/ -v
 ```
