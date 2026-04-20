@@ -23,8 +23,14 @@ Default restaurant configuration (12-hour service window, 6-item menu, 50–100 
 | **18** | **Minimum** | **Optimal — best wait time vs. degradation tradeoff** |
 | > 18 | Increases | Performance decay dominates marginal capacity gain |
 
-Optimal cook count shifts with decay rate and order volume — re-run with `-p` and `-s` flags
-to explore the sensitivity.
+**Sensitivity to decay rate and peak order volume** (optimal cook count):
+
+| Decay rate | 75 orders/hr peak | 100 orders/hr peak | 125 orders/hr peak |
+|---|---|---|---|
+| 1% (low degradation) | 19 | 20 | 22 |
+| 3% (default) | 19 | 18 | 18 |
+
+At low degradation adding more cooks keeps helping longer; at higher degradation the diminishing-returns crossover happens earlier. Re-run with `-p` and `-s` to explore further.
 
 ## Project Structure
 
