@@ -1,4 +1,4 @@
-# Simulate Queueing System
+# Queueing System Simulation
 
 Monte Carlo simulation to find the optimal number of kitchen staff that minimizes average
 customer wait time at a restaurant, accounting for cook performance degradation as team size grows.
@@ -9,6 +9,20 @@ customer wait time at a restaurant, accounting for cook performance degradation 
 - Models performance degradation per cook as a configurable decay rate
 - Runs N simulation samples per configuration to estimate stable averages
 - Outputs optimal cook count and wait time distribution
+
+## Results
+
+Default restaurant configuration (12-hour service window, 6-item menu, 50–100 orders/hour peak,
+3% performance decay per cook):
+
+| Cook Count | Avg Wait Time | Notes |
+|---|---|---|
+| < 18 | High | Queue builds faster than it drains during peak |
+| **18** | **Minimum** | **Optimal — best wait time vs. degradation tradeoff** |
+| > 18 | Increases | Performance decay dominates marginal capacity gain |
+
+Optimal cook count shifts with decay rate and order volume — re-run with `-p` and `-s` flags
+to explore the sensitivity.
 
 ## Project Structure
 
