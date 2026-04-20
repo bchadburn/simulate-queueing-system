@@ -1,5 +1,7 @@
 # Queueing System Simulation
 
+[![CI](https://github.com/bchadburn/simulate-queueing-system/actions/workflows/ci.yml/badge.svg)](https://github.com/bchadburn/simulate-queueing-system/actions/workflows/ci.yml)
+
 Monte Carlo simulation to find the optimal number of kitchen staff that minimizes average
 customer wait time at a restaurant, accounting for cook performance degradation as team size grows.
 

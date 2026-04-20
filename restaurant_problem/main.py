@@ -1,17 +1,23 @@
-import pandas as pd
-import numpy as np
-import random
-from tqdm import tqdm
-import logging
 import argparse
-from typing import Union
-import os
-import sys
 import inspect
+import logging
+import os
+import random
+import sys
+from typing import Union
+
+import numpy as np
+import pandas as pd
+from tqdm import tqdm
+
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
-from restaurant_problem.utils.constants import RESTAURANT_PARAMETERS, PERFORMANCE_DECAY_RATE, SIMULATION_SAMPLES
+from restaurant_problem.utils.constants import (
+    PERFORMANCE_DECAY_RATE,
+    RESTAURANT_PARAMETERS,
+    SIMULATION_SAMPLES,
+)
 from restaurant_problem.utils.utils import time_run
 
 
